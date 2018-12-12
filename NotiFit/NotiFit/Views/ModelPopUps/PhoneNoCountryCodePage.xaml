@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                   xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"                 
+             x:Class="NotiFit.PhoneNoCountryCodePage">
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#9cdaf1"/>
+                <Setter Property="TextColor" Value="#7dbbe6"/>
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <Grid x:Name="RootLayOut" Margin="25,20,25,20" BackgroundColor="Transparent">
+        <Frame HasShadow="False" CornerRadius="5" BackgroundColor="White" Padding="10">
+        <StackLayout Orientation="Vertical">
+            <SearchBar Placeholder="Search..." PlaceholderColor="LightGray" />
+            <ListView x:Name="listViewCountryList" ItemSelected="listViewCountryList_ItemSelected" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Spacing="10" Orientation="Horizontal">
+                                <ffimageloadingsvg:SvgCachedImage x:Name="ImageCtryFlage"                                                        
+                                                       WidthRequest="30" HeightRequest="15"
+                                                                  Source="{Binding flag}"
+                                                       VerticalOptions="Center" />
+                                    <Label x:Name="CountryName"  Text="{Binding name}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </Frame>
+    </Grid>
+     
+      
+        
+        
+   
+</pages:PopupPage>

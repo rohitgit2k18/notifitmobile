@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.Workouts.AddUnScheduledWorkoutPage"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid x:Name="RootLayout" Margin="10">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Description*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                    <TTcontrols:BorderlessEntry Text="{Binding Description}" 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                </Frame>
+                <Label Text="Date*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Frame HeightRequest="-1" Padding="0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="Start" CornerRadius="05">
+                    <TTcontrols:ImageDatePicker    
+                                x:Name="XFDPstartDate"
+                              Image="calender"                                                 
+                              ImageHeight="20"                                                         
+                                 ImageWidth="20"  
+                                 WidthRequest="150"                            
+                                   LineColor="#63BAED"
+                            
+                                FontSize="Small"
+                               TextColor="White"
+                               Date="{Binding DateOfWorkout}"
+                                    ImageAlignment="Right"
+                                MinimumDate="{x:Static sys:DateTime.Now}"                                                                                           
+                               HorizontalOptions="StartAndExpand" />
+                </Frame>
+                <Label Text="Start Time*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Frame HeightRequest="-1" Padding="5"  BackgroundColor="#63BAED" HorizontalOptions="Start" CornerRadius="05">
+                       <TimePicker 
+                           x:Name="XfTPStartTime"
+                           HorizontalOptions="EndAndExpand" 
+                           FontSize="Small"
+                           WidthRequest="150"
+                           TextColor="Black"
+                           Time ="{x:DynamicResource sys:DateTime.TimeOfDay}"/>
+                 </Frame>
+                    <!--<TimePicker 
+                        x:Name="XfTPStartTime"
+                           HorizontalOptions="Start" 
+                           FontSize="Small"
+                           WidthRequest="150"
+                           TextColor="White"/>-->
+               
+                <Label Text="Finish Time*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <ctrls:CheckBox OffImg="checkbox_blankwhite.png" Checked="False" OnImg="checkbox_tickedwhite.png" CheckChanged="CheckBox_CheckChanged" />
+                    <Label Text="Set automatically on workout completion" FontSize="Small"  TextColor="#7BBCE7"/>
+                </StackLayout>
+                <Frame HeightRequest="-1" Padding="5"  BackgroundColor="#63BAED" HorizontalOptions="Start" CornerRadius="05">
+                    <!--<TimePicker 
+                           HorizontalOptions="Start" 
+                        x:Name="XftpFinishTime"
+                           FontSize="Small"
+                           WidthRequest="150"
+                           TextColor="White"/>-->
+                        <TimePicker 
+                           x:Name="XftpFinishTime"
+                           HorizontalOptions="EndAndExpand" 
+                           FontSize="Small"
+                           WidthRequest="150"
+                           TextColor="Black"/>
+                </Frame>
+                <Label Text="Workout Notes*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                    <Editor x:Name="WorkoutTxt" HeightRequest="100" Text="{Binding WorkoutNotes}" FontSize="Small" TextColor="Gray" />
+                </Frame>
+                <Frame  HeightRequest="40" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="#FF740E" BackgroundColor="#FF740E">
+                    <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="Excercises" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                        <Label Text="+" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="BtnAddExercise" Tapped="BtnAddExercise_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Button HeightRequest="50" 
+                            WidthRequest="150"
+                            x:Name="XFBtnSave"
+                            Text="Save" 
+                            CornerRadius="5"
+                            TextColor="White"
+                            BackgroundColor="#FF740E"
+                            Clicked="XFBtnSave_Clicked"
+                            BorderRadius="5" />
+                    <Button HeightRequest="50"
+                            WidthRequest="150" 
+                             CornerRadius="5"
+                            TextColor="#009EE3"
+                            BackgroundColor="#FFFFFC"
+                            BorderRadius="5"
+                            Margin="75,0,0,0"
+                            Clicked="XFBtnCancel_CLicked"
+                            Text="Discard Changes"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

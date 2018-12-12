@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.Notification.FriendSees"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <ListView  x:Name="lstView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame x:Name="XFFrame1" HasShadow="true" HeightRequest="-1" CornerRadius="5" Margin="0,0,0,0" BackgroundColor="White">
+                                    <Grid BackgroundColor="White" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label  HorizontalOptions="StartAndExpand" Text="Notification to Friend" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                            </StackLayout>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Delivery Method : " VerticalOptions="Start" HorizontalOptions="Start" FontAttributes="Bold" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding DeliveryType}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Delivery Mail:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label x:Name="Email" Text="{Binding Email}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="3">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label  Text="Friend Name :" VerticalOptions="Start" HorizontalOptions="Start" FontAttributes="Bold" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label x:Name="FriendName" Text="{Binding FriendsName}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Duration:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding TotalMonths}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Purchase Date:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding PurchaseDate}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="6">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Expiry Date:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding ExpiryDate}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="7">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Subscription Type:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding SubcriptionType}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="8">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Label Text="Cost:" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <Label Text="{Binding Cost}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="9">
+                                                <Label Text="PAYMENT DONE" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Small" TextColor="Black"/>
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--listviw-->
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

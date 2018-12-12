@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.UserSettings.LoginPage"
+              xmlns:CustCtrl="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             xmlns:CstmTxtbx="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+             x:Name="LoginPageXaml"
+             BackgroundImage="bg.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height=".50*"/>
+                <RowDefinition Height=".25*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200" Source="logo.png"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame HasShadow="True" CornerRadius="5" BackgroundColor="#1697DD">
+                    <StackLayout Spacing="10">
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryEmail"
+                                              Placeholder="Email" 
+                                              Image="mail" 
+                                              FontSize="Small"
+                                              Text="{Binding Email,Mode=TwoWay}"
+                                              ImageAlignment="Right"                                              
+                                              TextColor="White"
+                                              PlaceholderColor="White" 
+                                              TextChanged="EntryEmail_TextChanged"
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                               x:Name="EntryPassword"
+                                              Placeholder="Password" 
+                                              Image="password" 
+                                              Text="{Binding Password,Mode=TwoWay}"
+                                              IsPassword="True"
+                                               TextColor="White"
+                                               FontSize="Small"
+                                              ImageAlignment="Right"
+                                              PlaceholderColor="White" 
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        <Button HorizontalOptions="FillAndExpand"
+                                x:Name="BtnLogin"
+                                CornerRadius="5"
+                                BorderColor="White"
+                                HeightRequest="40"
+                                BorderWidth="1"
+                                Text="Sign In"
+                                Clicked="BtnLogin_Clicked"
+                                BackgroundColor="White"/>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Spacing="2">
+                                <ctrls:CheckBox x:Name="ChkbxRememberMe" Size="15" CheckChanged="CheckBox_CheckChanged" OffImg="checkbox_blankwhite.png" OnImg="checkbox_tickedwhite.png"  ShowLabel="False" />
+                                <Label Text="Remember me" TextColor="White"  VerticalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="Forgot Password?" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BtnForgotPassword_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackLayout Spacing="10">
+                    <Label Text="OR" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" TextColor="#3796E6" />
+                    <Button x:Name="BtnRegisterUser" HorizontalOptions="FillAndExpand" CornerRadius="5" BorderWidth="1" TextColor="White" BorderColor="#FF6D0B" HeightRequest="45" Text="Don't have an account? Sign up" BackgroundColor="#FF6D0B" Clicked="BtnRegisterUser_Clicked"/>
+                </StackLayout>  
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

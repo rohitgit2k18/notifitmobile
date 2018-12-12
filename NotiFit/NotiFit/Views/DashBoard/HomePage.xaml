@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.DashBoard.HomePage"             
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView Margin="-5,0,-5,0">
+        <Grid x:Name="rootlayout">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--<Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    
+                </Grid>
+                <Grid Grid.Column="1">
+
+                </Grid>
+
+                <Grid Grid.Column="2">
+
+                </Grid>
+
+            </Grid>-->
+            <Grid Grid.Row="0" >
+
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                
+                    <Frame HasShadow="True" BorderColor="#1E8FE1" VerticalOptions="Start" HeightRequest="-1"  BackgroundColor="#6648A8E8" Padding="0" CornerRadius="05" Margin="20,0,20,0">
+                        <Grid RowSpacing="0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Padding="0,10,0,10" BackgroundColor="Transparent" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <!--<controls:circleimage source="docimage.jpg"   x:name="imgprofile" bordercolor="white" borderthickness="2"  margin="0,-60,0,0"  aspect="aspectfill" verticaloptions="start" horizontaloptions="center">
+                                        <controls:circleimage.widthrequest>
+                                            <onplatform x:typearguments="x:double">
+                                                <on platform="android, ios">120</on>
+                                                <on platform="winphone">75</on>
+                                            </onplatform>
+                                        </controls:circleimage.widthrequest>
+                                        <controls:circleimage.heightrequest>
+                                            <onplatform x:typearguments="x:double">
+                                                <on platform="android, ios">120</on>
+                                                <on platform="winphone">75</on>
+                                            </onplatform>
+                                        </controls:circleimage.heightrequest>
+                                    </controls:circleimage>-->
+                                    <!--<controls:CircleImage x:Name="imageProfile"  BorderColor="White" BorderThickness="4" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <controls:CircleImage.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">100</On>
+                                                <On Platform="WinPhone">75</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.WidthRequest>
+                                        <controls:CircleImage.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">100</On>
+                                                <On Platform="WinPhone">75</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.HeightRequest>                                        
+                                    </controls:CircleImage>-->
+                                </Grid>
+                                <Grid Grid.Row="1" >
+                                    <StackLayout Orientation="Vertical" Spacing="20">
+                                        <Label x:Name="LblUserName" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontSize="Medium"/>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label x:Name="LblSubscription" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="You're currently on the free Trial, " TextColor="White"  FontSize="Small"/>
+                                            <Label x:Name="LblSubscription1" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="which expires on 19-Dec-2018." TextColor="White"  FontSize="Small"/>
+                                            <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Click here " ForegroundColor="White"  FontAttributes="Bold" FontSize="Small" />
+                                                        <Span Text="to change your plan or Renew. " ForegroundColor="White" FontSize="Small"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="XFLblGotoSetting" NumberOfTapsRequired="1" Tapped="XFLblClickHere_Tapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Padding="0,10,0,10" BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Label x:Name="LblGraph" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" Text="LAST 30 DAYS" TextColor="#FF5900" FontAttributes="Bold" FontSize="Medium"/>
+                                </Grid>
+                                <Grid Grid.Row="1" HeightRequest="220">
+                                    
+                                    <microcharts:ChartView    x:Name="Chart1" HeightRequest="200">
+                                        <microcharts:ChartView.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="GraphTapped" NumberOfTapsRequired="1" Tapped="GraphTapped_Tapped" />
+                                        </microcharts:ChartView.GestureRecognizers>
+                                    </microcharts:ChartView>
+                                   
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label x:Name="LblMissed" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="#FF7D12" FontSize="Micro"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Label x:Name="LblCompleted" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="#1895DA" FontSize="Micro"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="2" Padding="10,10,10,10" RowSpacing="10" BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" x:Name="Lessthan50block" HeightRequest="80">
+                                    <ctrls:Border CornerRadius="5"  Stroke="LightGray" StrokeThickness="2" >
+                                        <Grid ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" BackgroundColor="#27BBEA">
+                                                <Image VerticalOptions="Center" Aspect="Fill" HeightRequest="80" Source="dashboard1.png"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" x:Name="lessthan50" BackgroundColor="White">
+                                                <StackLayout VerticalOptions="CenterAndExpand">
+                                                    <Label Text="You've missed a few sessions," TextColor="#1696DA" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                    <Label Text="but you can get there!" Margin="10,0,0,0" TextColor="#1696DA" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Grid>
+                                    </ctrls:Border>
+                                </Grid>
+                                <Grid Grid.Row="1" x:Name="lessThan75Block" HeightRequest="80">
+                                    <ctrls:Border CornerRadius="5"  Stroke="LightGray" StrokeThickness="2" >
+                                        <Grid ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" BackgroundColor="#27BBEA">
+                                                <Image VerticalOptions="Center" Aspect="Fill" HeightRequest="80" Source="dashboard2.png"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" x:Name="lessthan75" BackgroundColor="White">
+                                                <StackLayout VerticalOptions="CenterAndExpand">
+                                                    <Label Text="You are tracking well" TextColor="#1696DA" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                    <Label Text="- keep it up!" Margin="10,0,0,0" TextColor="#1696DA"  VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
+                                                
+                                            </Grid>
+                                        </Grid>
+                                    </ctrls:Border>
+                                </Grid>
+                                <Grid Grid.Row="2" x:Name="Above75Block" HeightRequest="80">
+                                    <ctrls:Border CornerRadius="5"  Stroke="LightGray" StrokeThickness="2" >
+                                        <Grid ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0" BackgroundColor="#27BBEA">
+                                                <Image VerticalOptions="Center" Aspect="Fill" HeightRequest="80" Source="dashboard3.png"/>
+                                            </Grid>
+                                            <Grid Grid.Column="1" x:Name="above75" BackgroundColor="White">
+                                                <Label Text="Amazing effort!" VerticalOptions="Center" TextColor="#1696DA" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ctrls:Border>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+               
+            </Grid>
+                
+            <Grid Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center">
+                <controls:CircleImage x:Name="imageProfile" BorderColor="White" BorderThickness="2"  Margin="0,-60,0,0"  Aspect="AspectFill" VerticalOptions="Start" HorizontalOptions="Center">
+                    <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android,iOS">100</On>
+                            <!--    <On Platform="iOS">180</On>-->
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android,iOS">100</On>
+                         <!--   <On Platform="iOS">180</On> --> 
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+            </Grid>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

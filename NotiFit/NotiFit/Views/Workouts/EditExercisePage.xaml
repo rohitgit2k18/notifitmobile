@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+             BackgroundImage="bg2.png"
+             x:Class="NotiFit.Views.Workouts.EditExercisePage">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="10,10,10,0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Exercise Name*" 
+                       TextColor="Gray" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium"  />
+                                <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                                    <Entry  
+                           HorizontalOptions="FillAndExpand" 
+                                          
+                           FontSize="Small"
+                           TextColor="Black"/>
+                                </Frame>
+
+                                <Label Text="Type*" 
+                                    TextColor="Gray" 
+                               HorizontalOptions="Start" 
+                                      FontSize="Medium"   />
+                                <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                                    <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownExerciseType"                                
+                              Image="drop_down"
+                            Title="Customer Name"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding TypeName}"   
+                           SelectedIndexChanged="dropdownExerciseType_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                                </Frame>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="10,10,10,0" Spacing="5">
+                                    <Label Text="Actual" VerticalOptions="Center" TextColor="Gray" FontSize="Medium"/>
+                                    <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" WidthRequest="80" BackgroundColor="White" CornerRadius="0">
+                                        <Entry  
+                           HorizontalOptions="FillAndExpand" 
+                                            x:Name="EntryNoOfSets"
+                           FontSize="Small"
+                           Keyboard="Numeric"
+                                            Unfocused="EntryNoOfSets_Unfocused"
+                           TextColor="Black"/>
+                                    </Frame>
+                                    <Label x:Name="lbltags"  VerticalOptions="Center" TextColor="#FF740E"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                        <ScrollView Grid.Row="1" Margin="0,10,0,0">
+                            <StackLayout Orientation="Vertical" x:Name="GridSets" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="30,0,0,0">
+
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button VerticalOptions="Center" 
+                            x:Name="BtnSubmitExercise"
+                            HorizontalOptions="FillAndExpand" 
+                            Text="Submit" TextColor="White" 
+                            BackgroundColor="#FF6A09" 
+                            CornerRadius="5"
+                            Clicked="BtnSubmitExercise_Clicked"
+                            BorderRadius="5"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button VerticalOptions="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            Text="Cancel" 
+                            TextColor="#009EE3"
+                            BackgroundColor="#FFFFFC" 
+                            CornerRadius="5" 
+                            BorderRadius="5"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

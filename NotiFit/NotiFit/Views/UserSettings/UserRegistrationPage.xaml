@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CustCtrl="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"     
+             xmlns:CstmTxtbx="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+        xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="NotiFit.Views.UserSettings.UserRegistrationPage"
+              BackgroundImage="bg.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="25,0,25,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200" Source="logo.png"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame x:Name="RootFrame" HasShadow="True" CornerRadius="5"  BackgroundColor="#1697DD">
+                    <StackLayout Spacing="05">
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryFirstname"
+                                              Placeholder="First Name" 
+                                              Image="user" 
+                                              FontSize="Small"
+                                              Text="{Binding FirstName,Mode=TwoWay}"
+                                              ImageAlignment="Right"                                              
+                                              TextColor="White"
+                                              PlaceholderColor="White"                                               
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryLastName"
+                                              Placeholder="Last Name" 
+                                              Image="user" 
+                                              FontSize="Small"
+                                              Text="{Binding LastName,Mode=TwoWay}"
+                                              ImageAlignment="Right"                                              
+                                              TextColor="White"
+                                              PlaceholderColor="White"                                             
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryEmail"
+                                              Placeholder="Email" 
+                                              Image="mail" 
+                                              FontSize="Small"
+                                              Text="{Binding Email,Mode=TwoWay}"
+                                              ImageAlignment="Right" 
+                                              Keyboard="Email"
+                                              TextColor="White"
+                                              PlaceholderColor="White" 
+                                              TextChanged="EntryEmail_TextChanged"
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                               x:Name="EntryPassword"
+                                              Placeholder="Password" 
+                                              Image="password" 
+                                              Text="{Binding Password,Mode=TwoWay}"
+                                              IsPassword="True"
+                                               TextColor="White"
+                                               FontSize="Small"
+                                              ImageAlignment="Right"
+                                              PlaceholderColor="White" 
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                          <StackLayout Orientation="Vertical" Spacing="10">
+                            <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+                                <ffimageloadingsvg:SvgCachedImage x:Name="ImageCtryFlage"                                                        
+                                                       WidthRequest="30" HeightRequest="15"
+                                                       VerticalOptions="Center" />
+                                <Image x:Name="CountryListdd" WidthRequest="10" HeightRequest="10" Source="dropdown_small.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CountryListdd_Tapped"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <CstmTxtbx:BorderlessEntry HorizontalOptions="FillAndExpand" 
+                                               x:Name="EntryMobileNo"
+                                              Placeholder="Mobile Number"                                              
+                                              Text="{Binding MobileNumber,Mode=TwoWay}"                                            
+                                               TextColor="White"
+                                                 Keyboard="Numeric"
+                                               FontSize="Small"                                            
+                                              PlaceholderColor="White"  />
+                            </StackLayout>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="White"/>
+                        </StackLayout>
+                       
+                        <StackLayout Orientation="Horizontal" Padding="0,20,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Spacing="2">
+                                <ctrls:CheckBox x:Name="ChkbxRememberMe" Size="15" VerticalOptions="Start" CheckChanged="CheckBox_CheckChanged" OffImg="checkbox_blankwhite.png" OnImg="checkbox_tickedwhite.png"  ShowLabel="False" />
+                                <StackLayout>
+                                    <Label Text="By Creating an account I accept the " TextColor="White" FontSize="Small"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Terms and Conditions " TextColor="White" FontSize="Small">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer x:Name="XFLblTersAndCondition" NumberOfTapsRequired="1" Tapped="XFLblTersAndCondition_Tapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Text="and " TextColor="White" FontSize="Small"/>
+                                        <Label Text="Privacy Policy " TextColor="White" FontSize="Small">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer x:Name="XFLblPrivecyPolicy" NumberOfTapsRequired="1" Tapped="XFLblPrivecyPolicy_Tapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!--<Label   VerticalOptions="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="By Creating an account i accept the " ForegroundColor="White" FontSize="Small" />
+                                            <Span Text="Term and Condition " ForegroundColor="#0576E3" FontSize="Small" ></Span>
+                                            <Span Text="and " ForegroundColor="White" FontSize="Small"/>
+                                            <Span Text="Privacy Policy"  ForegroundColor="#0576E3" FontSize="Small">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="XFLblPrivecyPolicy" NumberOfTapsRequired="1" Tapped="XFLblPrivecyPolicy_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>-->
+                            </StackLayout>
+                        </StackLayout>
+                        <Button HorizontalOptions="FillAndExpand"
+                                x:Name="BtnLogin"
+                                CornerRadius="5"
+                                BorderColor="White"
+                                HeightRequest="40"
+                                BorderWidth="1"
+                                Text="Sign Up"             
+                                Clicked="BtnSignup_Clicked"
+                                BackgroundColor="White"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="#288AD0" Text="Back to Sign In">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="XFLblBacktoLogin" Tapped="XFLblBacktoLogin_Tapped"/>
+                    </Label.GestureRecognizers>                   
+                </Label>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

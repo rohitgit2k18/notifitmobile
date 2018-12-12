@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "946545660282",
+    "firebase_url": "https://notifit-9f26a.firebaseio.com",
+    "project_id": "notifit-9f26a",
+    "storage_bucket": "notifit-9f26a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946545660282:android:5c112d0cd51b1085",
+        "android_client_info": {
+          "package_name": "com.vinove.notififit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946545660282-cg937fh74112170pfsucb1icqhc5l48p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vinove.notififit",
+            "certificate_hash": "33cb4b0032fb6dc178725ae33dbad480e1d9be5f"
+          }
+        },
+        {
+          "client_id": "946545660282-i9b016hoda64rc23dp1ivqtgt4tjim7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkCV6E_3mVDY1uJU7c1TTLxL3r-fXTwVg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946545660282-i9b016hoda64rc23dp1ivqtgt4tjim7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

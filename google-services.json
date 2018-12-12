@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "167519845280",
+    "firebase_url": "https://notifit-f38c1.firebaseio.com",
+    "project_id": "notifit-f38c1",
+    "storage_bucket": "notifit-f38c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167519845280:android:31326509a0b13313",
+        "android_client_info": {
+          "package_name": "com.companyname.NotiFit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167519845280-laavrm8t1kseion8shvd7dial2lmag07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUO1s7RwZvSUqAge8Yi1GOVcilT0Kkc84"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:CstmTxtbx="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+             x:Class="NotiFit.Views.UserSettings.ConfirmOTPPage"
+              BackgroundImage="bg.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.50*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200" Source="logo.png"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame HasShadow="True" CornerRadius="5"  BackgroundColor="#1697DD">
+                    <StackLayout Spacing="10">
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryOTP"
+                                              Placeholder="Enter OTP here!" 
+                                              Image="password" 
+                                              FontSize="Small"                                             
+                                              ImageAlignment="Right"
+                                              TextColor="White"
+                                              Text="{Binding OTP}"
+                                              PlaceholderColor="White"                                              
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="Entrypassword"
+                                              Placeholder="New Password" 
+                                              Image="password" 
+                                              Text="{Binding Password}"
+                                              FontSize="Small"                                           
+                                              ImageAlignment="Right"
+                                              TextColor="White"
+                                              PlaceholderColor="White"                                               
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        <CstmTxtbx:ImageEntry HorizontalOptions="FillAndExpand" 
+                                              x:Name="EntryCPassword"
+                                              Placeholder="Confirm Password" 
+                                              Image="password" 
+                                              FontSize="Small"  
+                                              Text="{Binding ConfirmPassword}"
+                                              ImageAlignment="Right"
+                                              TextColor="White"
+                                              PlaceholderColor="White"                                               
+                                              ImageHeight="15" 
+                                              ImageWidth="20"/>
+                        
+                        <Button HorizontalOptions="FillAndExpand"
+                                x:Name="BtnSendpassword"
+                                CornerRadius="5"
+                                BorderColor="White"
+                                HeightRequest="40"
+                                BorderWidth="1"
+                                TextColor="#1DA7DC"
+                                Text="Submit"    
+                                Clicked="BtnSendpassword_Clicked"
+                                BackgroundColor="White"/>
+                        
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="#288AD0" Text="Back to Sign In">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="XFLblBacktoLogin" Tapped="XFLblBacktoLogin_Tapped"/>
+                    </Label.GestureRecognizers>                   
+                </Label>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

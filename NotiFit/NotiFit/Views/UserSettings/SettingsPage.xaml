@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls"
+             x:Class="NotiFit.Views.UserSettings.SettingsPage"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <Grid x:Name="Rootlayout" Margin="20,80,20,50">
+            <StackLayout>
+                <Button x:Name="xfBtnProfile" BackgroundColor="#66BAED" HorizontalOptions="FillAndExpand" HeightRequest="40" CornerRadius="05" BorderRadius="05" Text="Profile" TextColor="White" Clicked="xfBtnProfile_Clicked"/>
+                <Button x:Name="xfBtnNotification" BackgroundColor="#66BAED" HorizontalOptions="FillAndExpand" HeightRequest="40" CornerRadius="05" BorderRadius="05" Text="Notification" TextColor="White" Clicked="xfBtnNotification_Clicked"/>
+                <Button x:Name="xfBtnAddNotification" BackgroundColor="#66BAED" HorizontalOptions="FillAndExpand" HeightRequest="40" CornerRadius="05" BorderRadius="05" Text="Add Notification" TextColor="White" Clicked="xfBtnAddNotification_Clicked"/>
+                <Button BackgroundColor="#66BAED" HorizontalOptions="FillAndExpand" HeightRequest="40" CornerRadius="05" BorderRadius="05" Text="Friend See" TextColor="White" Clicked="xfBtnFrndNotification_Clicked"/>
+                <Button BackgroundColor="#66BAED" HorizontalOptions="FillAndExpand" HeightRequest="40" CornerRadius="05" BorderRadius="05" Text="Measurement" TextColor="White"/>
+                <Label Text="Weight" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       FontSize="Small" />
+                <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                    <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownWeight"                                
+                              Image="drop_down"
+                            Title="Weight"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding Name}"   
+                           SelectedIndexChanged="dropdownWeight_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                </Frame>
+                <Label Text="Distance" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       FontSize="Small"/>
+                <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                    <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownHeight"                                
+                              Image="drop_down"
+                            Title="Distance"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding DistanceName}"   
+                           SelectedIndexChanged="dropdownDistance_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

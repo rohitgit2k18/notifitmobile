@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:NotiFit.Converters;assembly=NotiFit"
+             x:Class="NotiFit.Views.Schedule.ScheduleDetailPage"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid x:Name="RootLayout" Margin="10">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label Text="Description*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start"  
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="10,0,0,0" BackgroundColor="White" CornerRadius="05">
+                        <Label Text="{Binding Description}" 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"  
+                          VerticalTextAlignment="Center"
+                            HeightRequest="40"
+                           TextColor="Black"/>
+                    </Frame>
+
+                    <Label Text="Schedule*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="XFBtnMonday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Monday" BackgroundColor="{Binding Monday, Converter={converters:BoolToColorConverter}}"
+                                 />
+                        <Button x:Name="XFBtnTuesday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Tuesday" BackgroundColor="{Binding Tuesday, Converter={converters:BoolToColorConverter}}"
+                               />
+                        <Button x:Name="XFBtnWednesday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Wednesday" BackgroundColor="{Binding Wednesday, Converter={converters:BoolToColorConverter}}"
+                                />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="XFBtnThursaday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Thursday" BackgroundColor="{Binding Thursday, Converter={converters:BoolToColorConverter}}"
+                                />
+                        <Button x:Name="XFBtnFriday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Friday" BackgroundColor="{Binding Friday, Converter={converters:BoolToColorConverter}}"
+                                />
+                        <Button x:Name="XFBtnSaturday" CornerRadius="5" TextColor="White" HorizontalOptions="FillAndExpand" Text="Saturday" BackgroundColor="{Binding Saturday, Converter={converters:BoolToColorConverter}}"
+                               />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="XFBtnSunday" CornerRadius="5" TextColor="White" HorizontalOptions="StartAndExpand" Text="Sunday" BackgroundColor="{Binding Sunday, Converter={converters:BoolToColorConverter}}" WidthRequest="120"
+                                />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" HorizontalOptions="StartAndExpand" CornerRadius="05">
+                            <!--<TTcontrols:BorderlessEntry Text="Hello World" 
+                           HorizontalOptions="Start" 
+                           FontSize="Small"
+                            WidthRequest="130"
+                           TextColor="Black"/>-->
+                            <TTcontrols:ImagePicker TextColor="Black"  
+                             x:Name="dropdownReccerenceType"                                
+                              Image="drop_down"
+                            Title="Reccrence Type"    
+                            ImageAlignment="Right"
+                            IsEnabled="False"
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding RecerrenceName}"   
+                           SelectedIndexChanged="dropdownReccerenceType_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                        </Frame>
+                        <Label Text="at" 
+                       TextColor="White" 
+                       HorizontalOptions="CenterAndExpand"                       
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                        <Frame HeightRequest="-1" Padding="10,0,0,0" HorizontalOptions="EndAndExpand"  BackgroundColor="White" CornerRadius="05">
+                            <Label x:Name="XfTPStartTime"                        
+                           FontSize="Small"
+                         Text="{Binding ScheduleTime}"
+                          VerticalTextAlignment="Center"
+                           WidthRequest="130"
+                           TextColor="Black"/>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start Date" Margin="20,0,0,0" HorizontalOptions="StartAndExpand" FontSize="Medium" FontAttributes="Bold"  TextColor="White"/>
+
+                        <Label Text="End Date" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="30,0,0,0" FontAttributes="Bold" TextColor="White"/>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="-1" Padding="10,0,0,0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="StartAndExpand" CornerRadius="05">
+                            <Label                          
+                                HorizontalTextAlignment="Start"
+                                VerticalOptions="Center"  
+                                VerticalTextAlignment="Center"
+                           FontSize="Small"
+                           TextColor="Black"
+                            Text="{Binding StartDate}"                             
+                            WidthRequest="130" 
+                                HeightRequest="30"                          
+                           />
+                            <!--<TTcontrols:ImageDatePicker    
+                                x:Name="XFDPstartDate"
+                              Image="calender"                                                 
+                              ImageHeight="20"   
+                            Margin="20,0,0,0"                               
+                                 ImageWidth="20"  
+                                 WidthRequest="130"                              
+                                   LineColor="#63BAED"  
+                                FontSize="Small"
+                               TextColor="White"
+                                Date="{Binding StartDate}"
+                                    ImageAlignment="Right"
+                                MinimumDate="{x:Static sys:DateTime.Now}"                                                                                           
+                               HorizontalOptions="StartAndExpand" />-->
+                        </Frame>
+                        <Frame HeightRequest="-1" Padding="0,0,0,0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="EndAndExpand" CornerRadius="05">
+                            <Label 
+                           HorizontalTextAlignment="Start"
+                           FontSize="Small"
+                                HorizontalOptions="StartAndExpand"
+                            TextColor="Black"
+                                VerticalTextAlignment="Center"
+                            Text="{Binding EndDate}"
+                            Margin="30,0,0,0" 
+                             WidthRequest="150" 
+                                HeightRequest="40"
+                           IsEnabled="False"
+                           />
+                            <!--<TTcontrols:ImageDatePicker    
+                                x:Name="XFDPEndDate"
+                              Image="calender"                                                 
+                              ImageHeight="20"   
+                              Margin="30,0,0,0"                              
+                                 ImageWidth="20"  
+                                 WidthRequest="130"                              
+                                   LineColor="#63BAED" 
+                                Date="{Binding EndDate}"
+                                         FontSize="Small"
+                                        TextColor="White"
+                                    ImageAlignment="Right"
+                                MinimumDate="{x:Static sys:DateTime.Now}"                                                                                           
+                               HorizontalOptions="EndAndExpand" />-->
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <ctrls:CheckBox IsEnabled="False" x:Name="CheckboxTextme" VerticalOptions="Start" OffImg="checkbox_blankwhite.png" OnImg="checkbox_tickedwhite.png" CheckChanged="CheckboxTextme_CheckChanged" />
+
+                        <Frame HeightRequest="-1" Padding="10,0,0,0" BackgroundColor="White" CornerRadius="05">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Text Me" 
+                       TextColor="#0D83DB" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                       <Label Text="Minutes before workout(Works during trial peroid or  subscription)" 
+                       TextColor="Gray" 
+                       HorizontalOptions="Start" 
+                       FontSize="Small" 
+                       />
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Frame HeightRequest="-1" Padding="0" HorizontalOptions="Start" BorderColor="LightGray"   BackgroundColor="White">
+
+                                        <Label Text="{Binding TextMeTime,Converter={converters:IntToStringConverters}}"
+                           HorizontalOptions="StartAndExpand" 
+                           WidthRequest="130"
+                            x:Name="XFEntryTxtMe"                          
+                           FontSize="Small"
+                                               HeightRequest="30"
+                           TextColor="Black"/>
+                                    </Frame>
+                                    <Label Text="Minutes" 
+                                  TextColor="Gray" 
+                                   HorizontalOptions="Center" 
+                                   FontSize="Small" 
+                       />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <ctrls:CheckBox IsEnabled="False" x:Name="checkboxTextfeirnd" VerticalOptions="Start" OffImg="checkbox_blankwhite.png" OnImg="checkbox_tickedwhite.png" CheckChanged="checkboxTextfeirnd_CheckChanged" />
+
+                        <Frame HeightRequest="-1" Padding="10,0,0,0" BackgroundColor="White" CornerRadius="05">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Text Friends" 
+                       TextColor="#0D83DB" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                                <Label Text="Minutes after start of  workout(Works during trial peroid or subscription)" 
+                       TextColor="Gray" 
+                       HorizontalOptions="Start" 
+                       FontSize="Small" 
+                       />
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Frame HeightRequest="-1" Padding="0" HorizontalOptions="Start" BorderColor="LightGray"   BackgroundColor="White">
+                                        <Label Text="{Binding TextFriendTime ,Converter={converters:IntToStringConverters}}"
+                           HorizontalOptions="StartAndExpand" 
+                             x:Name="XFEntryTxtFriend"
+                           WidthRequest="130"
+                           FontSize="Small"
+                            HeightRequest="30"
+                           TextColor="Black"/>
+                                    </Frame>
+                                    <Label Text="Minutes" 
+                                  TextColor="Gray" 
+                                   HorizontalOptions="Center" 
+                                   FontSize="Small" 
+                       />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                    <!--<Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                    <Editor HeightRequest="100" FontSize="Small" TextColor="Gray" />
+                </Frame>-->
+                    <Frame  HeightRequest="40" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="#FF740E" BackgroundColor="#FF740E">
+                        <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="View Excercises" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                            <Label Text="+" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="BtnAddExercise" Tapped="BtnAddExercise_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    <!--<StackLayout Orientation="Horizontal" Spacing="20">
+                        <Button HeightRequest="50" 
+                            WidthRequest="150"
+                            Text="Save" 
+                            CornerRadius="5"
+                            TextColor="White"
+                            BackgroundColor="#FF740E"
+                            Clicked="XFSubmitButton_Clicked"
+                            BorderRadius="5" />
+                        <Button HeightRequest="50"
+                            WidthRequest="150" 
+                             CornerRadius="5"
+                            TextColor="#009EE3"
+                            BackgroundColor="#FFFFFC"
+                            BorderRadius="5"
+                            Text="Discard Changes"/>
+                    </StackLayout>-->
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

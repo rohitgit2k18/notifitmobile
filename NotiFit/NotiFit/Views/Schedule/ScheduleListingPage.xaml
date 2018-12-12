@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.Schedule.ScheduleListingPage"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="XFDDFilter"                                
+                              Image="drop_down"
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding ListName}"   
+                           SelectedIndexChanged="XFDDFilter_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                    </Frame>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button BackgroundColor="#FF760E" 
+                        x:Name="BtnNewUnscheduledWorkout"
+                        HeightRequest="50" 
+                        CornerRadius="5" 
+                        BorderRadius="5" 
+                        Text="+ New Scheduled Workout" 
+                        Clicked="BtnNewscheduledWorkout_Clicked"
+                        TextColor="White"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <ListView x:Name="WorkoutList" ItemTapped="WorkoutList_ItemTapped" HasUnevenRows="True" SeparatorColor="Transparent" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="true" HeightRequest="-1" CornerRadius="5" Margin="0,0,0,0" BackgroundColor="White">
+                                    <Grid BackgroundColor="White">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Label Text="{Binding Description}"
+                                                       TextColor="#1282DC"
+                                                       FontAttributes="Bold"  
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="StartAndExpand"/>
+                                            <Button Text="Delete" HorizontalOptions="End" BackgroundColor="Transparent" Clicked="Delete_Click"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Label Text="{Binding Schedule}" 
+                                                       VerticalOptions="Center" 
+                                                       TextColor="Gray"
+                                                       HorizontalOptions="StartAndExpand"/>
+                                        </Grid>
+
+                                        <Grid Grid.Row="2">
+                                            <Label Text="{Binding ScheduleTime,StringFormat='Scheduled Time : {0}'}" 
+                                                       VerticalOptions="Center" 
+                                                       TextColor="Gray"
+                                                       HorizontalOptions="StartAndExpand"/>
+                                        </Grid>
+
+                                        <Grid Grid.Row="3">
+                                            <Label Text="{Binding StartDate,StringFormat='Start Date : {0}'}"
+                                                       VerticalOptions="Center" 
+                                                      TextColor="Gray"
+                                                       HorizontalOptions="StartAndExpand"/>
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

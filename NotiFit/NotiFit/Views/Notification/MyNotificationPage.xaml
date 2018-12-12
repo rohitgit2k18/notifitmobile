@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.Notification.MyNotificationPage"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>           
+            <Grid x:Name="RootLayout" Margin="10">                
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <!--<Frame  HeightRequest="40" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="#EF5100" BackgroundColor="#EF5100">
+                    <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                        <Label Text="My Notification" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                        --><!--<Label Text="+" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>-->
+                         <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="BtnAddExercise" Tapped="ClickTap1" />
+                        </StackLayout.GestureRecognizers>--><!--
+                    </StackLayout>
+                    </Frame>-->
+                    <Label Text="My Notification" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Label Text="Send reminder to me via  " 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <!--<Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                         Text="Notification to Friend"
+                         IsEnabled="False"
+                           TextColor="Black"/>
+                    </Frame>-->
+                    <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownSetReminder"                                
+                              Image="drop_down"
+                            Title="Send reminder to me via"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding SetReminderName}"   
+                           SelectedIndexChanged="dropdownSetReminder_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                    </Frame>
+                    <Label Text="Billing for my reminders" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <!--<Frame HeightRequest="-1" Padding="0" BorderColor="White" BackgroundColor="White" HorizontalOptions="FillAndExpand" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>-->
+                    <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownBillingReminder"                                
+                              Image="drop_down"
+                            Title="Billing for my reminders"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding bilingRemType}"   
+                           SelectedIndexChanged="dropdownbillingReminder_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                    </Frame>
+                    <Label Text="Frequency" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <!--<Frame HeightRequest="-1" Padding="0" BorderColor="White" BackgroundColor="White" HorizontalOptions="FillAndExpand" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>-->
+                    <Frame HeightRequest="-1"  Padding="0" BorderColor="#93CBF0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:ImagePicker TextColor="Gray"  
+                             x:Name="dropdownFrequency"                                
+                              Image="drop_down"
+                            Title="Frequency"    
+                            ImageAlignment="Right"                            
+                             ImageHeight="10"                              
+                            ImageWidth="10"                           
+                           LineColor="White"
+                            ItemDisplayBinding="{Binding Frequency}"   
+                           SelectedIndexChanged="dropdownFequency_SelectedIndexChanged"
+                        HorizontalOptions="FillAndExpand"/>
+                    </Frame>                    
+                    <Label Text="Cost*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="20" BackgroundColor="White" CornerRadius="05">
+                        <Label  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"                           
+                           x:Name="Cost"
+                           TextColor="Black"/>                           
+                    </Frame>
+                                       
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Button HeightRequest="50" 
+                            WidthRequest="150"
+                            x:Name="BtnSave"
+                            Text="Checkout" 
+                            CornerRadius="5"
+                            TextColor="White"
+                            BackgroundColor="#EF5100"                          
+                            BorderRadius="5"
+                            Clicked="MyNotificationSave_Click"/>
+                        <Button HeightRequest="50"
+                            WidthRequest="150" 
+                             CornerRadius="5"
+                                x:Name="BtnCancel"
+                            TextColor="#168DE0"
+                            BackgroundColor="White"
+                            BorderRadius="5"
+                                Margin="75,0,0,0"
+                                BorderColor="#168DE0"
+                            Text="Discard Changes"
+                                Clicked="Cancel_btn"/>
+                    </StackLayout>                   
+                    
+                    <!--<Label Text="Duration*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>-->
+                    <!--<Frame  HeightRequest="40" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="#6BC2ED" BackgroundColor="#6BC2ED">
+                        <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="Total New Subscriptions: US $90" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Button HeightRequest="50" 
+                            WidthRequest="150"
+                            x:Name="XFBtnSave"
+                            Text="Checkout" 
+                            CornerRadius="5"
+                            TextColor="White"
+                            BackgroundColor="#EF5100"                          
+                            BorderRadius="5" />
+                        <Button HeightRequest="50"
+                            WidthRequest="150" 
+                             CornerRadius="5"
+                            TextColor="#168DE0"
+                            BackgroundColor="White"
+                            BorderRadius="5"
+                                BorderColor="#168DE0"
+                            Text="Discard Changes"/>
+                    </StackLayout>
+                    <Label Text="Recurring Payment Information" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       FontSize="Medium" 
+                       />
+                    <Frame  HeightRequest="80" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="White" BackgroundColor="White" CornerRadius="05">
+                        <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="Click here to update your recurring payment information" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>-->
+                    <!--<StackLayout Orientation="Horizontal">
+                        <Label Text="purchase Date" Margin="20,0,0,0" HorizontalOptions="StartAndExpand" FontSize="Medium" FontAttributes="Bold"  TextColor="White"/>
+
+                        <Label Text="Expiery Date" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="30,0,0,0" FontAttributes="Bold" TextColor="White"/>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="-1" Padding="0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="StartAndExpand" CornerRadius="05">
+                            <TTcontrols:ImageDatePicker    
+                                x:Name="XFDPstartDate"
+                              Image="calender"                                                 
+                              ImageHeight="20"   
+                            Margin="20,0,0,0"                               
+                                 ImageWidth="20"  
+                                 WidthRequest="130"                              
+                                   LineColor="#63BAED"  
+                                FontSize="Small"
+                               TextColor="White"                               
+                                    ImageAlignment="Right"
+                                MinimumDate="{x:Static sys:DateTime.Now}"                                                                                           
+                               HorizontalOptions="StartAndExpand" />
+                        </Frame>
+                        <Frame HeightRequest="-1" Padding="0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="EndAndExpand" CornerRadius="05">
+                            <TTcontrols:ImageDatePicker    
+                                x:Name="XFDPEndDate"
+                              Image="calender"                                                 
+                              ImageHeight="20"   
+                              Margin="30,0,0,0"                              
+                                 ImageWidth="20"  
+                                 WidthRequest="130"                              
+                                   LineColor="#63BAED"                                 
+                                         FontSize="Small"
+                                        TextColor="White"
+                                    ImageAlignment="Right"
+                                MinimumDate="{x:Static sys:DateTime.Now}"                                                                                           
+                               HorizontalOptions="EndAndExpand" />
+                        </Frame>
+                    </StackLayout>
+                    <Label Text="Subscription Type*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Cost*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry  
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>-->
+                    <!--<StackLayout Orientation="Horizontal" Spacing="20">
+                        <Button HeightRequest="50" 
+                            WidthRequest="150"
+                            x:Name="XFBtnSave"
+                            Text="Submit" 
+                            CornerRadius="5"
+                            TextColor="White"
+                            BackgroundColor="#FF740E"                          
+                            BorderRadius="5" />
+                        <Button HeightRequest="50"
+                            WidthRequest="150" 
+                             CornerRadius="5"
+                            TextColor="#009EE3"
+                            BackgroundColor="#FFFFFC"
+                            BorderRadius="5"
+                            Text="Cancel"/>
+                    </StackLayout>-->
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

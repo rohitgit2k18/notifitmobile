@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.UserSettings.AboutUsPage"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid x:Name="RootLayout" Margin="20,30,20,20" BackgroundColor="#36A1E5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Image VerticalOptions="StartAndExpand" Source="aboutus.png"/>
+            </Grid>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"  Margin="0,20,0,0">
+                        <Label VerticalOptions="Center" FontAttributes="Bold" HorizontalOptions="Center" Text="ABOUT US" FontSize="Large" TextColor="#B3D6F2"/>
+                    </Grid>
+                <Grid Grid.Row="1" BackgroundColor="Transparent">
+
+                </Grid>
+                <Grid Grid.Row="2" BackgroundColor="Transparent">
+                        <StackLayout Spacing="0">
+                            <Label FontAttributes="Bold" HorizontalTextAlignment="Center"  HorizontalOptions="Center" Text="noti.fit is the fitness tracker" FontSize="Medium" TextColor="White"/>
+                            <Label  FontAttributes="Bold" HorizontalTextAlignment="Center"  HorizontalOptions="Center" Text="that keeps you honest" FontSize="Medium" TextColor="White"/>
+                        </StackLayout>
+                    </Grid>
+                <Grid Grid.Row="3" BackgroundColor="Transparent">
+                        <StackLayout Padding="05,02,05,0">
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                    Text="It's one of the biggest problems everyone has when they start working out for the first time, or getting back in the gym/on the pavement after a holiday. I'm just too tired this morning, but I'll start tomorrow or I was flat out today at work, I don't feel like running now. It's really hard getting motivated to go for a grueling run after a long day, or lift heavy weights at 6am." />
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                    Text="But consistency (along with good form) is one of the most important factors that determines whether or not you'll see results from your exercise regiment - even Harvard University agrees (incidentally, their site is full of great tips on exercise and general health, check it out!)." />
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="So how do you stay consistent? Having a workout buddy is great - someone to get up with you at 6 and hit the weights or the treadmill. It keeps you accountable to someone, and you feel like you let them down if you don't get up that morning. But finding someone with a matching schedule and similar fitness goals who lives close enough to you to work out together can be tough."/>
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="That's where noti.fit comes in - you can nominate one of your friends as a virtual workout partner. You plan and schedule your workouts, and enter your results into the app. But if you miss a workout, they get a push notification or SMS to let them know. Best of all, they can be anywhere in the world. noti.fit will help keep you on track so you see results from your efforts."/>
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="There's a free 14-day trial, so get the app for yourself, find a friend to install it on their phone and try it out today. After the trial, it's only 99c US a month to keep going (exact pricing depending on your country, SMS notifications extra)."/>
+                        </StackLayout>
+                         </Grid>
+            </Grid>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.Schedule.ScheduleGoalListing"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" Margin="20,10,20,0">
+            <ListView x:Name="ExerciseList"  HasUnevenRows="True" SeparatorColor="Transparent" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame x:Name="XFFrame1" HasShadow="true" HeightRequest="-1" CornerRadius="5" Margin="0,05,0,05" BackgroundColor="White">
+                                <Grid BackgroundColor="White" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Label Text="4 sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Text="{Binding SetsDescription}" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Text="{Binding ActualSetsDescription}" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="4" ColumnSpacing="20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                    x:Name="XFBtnFillFromGoal"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            Clicked="XFBtnFillFromGoal_Clicked"
+                                                            BorderColor="#1AA2DC"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                    x:Name="XFBtnUpdateExercise"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                    Clicked="XFBtnUpdateExercise_Clicked"
+                                                            BorderColor="#1AA2DC"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <!--<Grid BackgroundColor="White" IsVisible="{Binding IsId2}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="3 sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="{Binding SetsDescription}" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="20 x 12 reps" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="4" ColumnSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid BackgroundColor="White" IsVisible="{Binding IsId3}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text=" 12 seconds" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="12 seconds" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="4" ColumnSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid BackgroundColor="White" IsVisible="{Binding IsId4}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text=" 12 reps" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="12 reps" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="4" ColumnSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid BackgroundColor="White" IsVisible="{Binding IsId5}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" IsVisible="False" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text=" 1.2 km in  15 Sec" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" IsVisible="False" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="1.2 km in  15 Sec" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="4" ColumnSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid BackgroundColor="White" IsVisible="{Binding IsId6}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label HorizontalOptions="StartAndExpand" Text="Bench Press" TextColor="#0D82DB" FontAttributes="Bold" FontSize="Medium"/>
+                                                    <Label HorizontalOptions="EndAndExpand" Text="Completed" TextColor="#FF6F12" FontAttributes="Bold" FontSize="Small"/>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Goal" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" IsVisible="False" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="Free Text" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="2">
+                                                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>
+                                            </Grid>
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Label Text="Actual" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Label Text="5 Sets" IsVisible="False" VerticalOptions="Start" HorizontalOptions="Start" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                                <Grid Grid.Column="2">
+                                                    <Label Text="Free Text" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" TextColor="Gray"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="4" ColumnSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <Button BackgroundColor="#1AA2DC" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Fill from goal"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Button BackgroundColor="White" CornerRadius="5"
+                                                            BorderRadius="5"
+                                                            BorderWidth="2"
+                                                            Text="Update"
+                                                            BorderColor="#1AA2DC"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>-->
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

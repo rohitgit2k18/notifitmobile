@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.UserSettings.UserProfilePage"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+              xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <Grid x:Name="RootLayout" RowSpacing="20" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height=".75*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <controls:CircleImage x:Name="imgProfile"  BorderColor="White" BorderThickness="0" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">75</On>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">75</On>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                    <controls:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="pickPhoto" NumberOfTapsRequired="1" Tapped="XFPickPhtoClickHere_Tapped"/>
+                    </controls:CircleImage.GestureRecognizers>
+                </controls:CircleImage>
+                
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackLayout Spacing="10">
+                    <Label Text="First Name" VerticalOptions="Start" TextColor="White" FontSize="Small"/>
+                    <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                            Placeholder="First Name"
+                            PlaceholderColor="Gray"
+                            Text="{Binding FirstName,Mode=TwoWay}"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Last Name" VerticalOptions="Start" TextColor="White" FontSize="Small"/>
+                    <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                            Placeholder="LastName"
+                            PlaceholderColor="Gray"
+                            Text="{Binding LastName}"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Email" VerticalOptions="Start" TextColor="White" FontSize="Small"/>
+                    <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry 
+                           HorizontalOptions="FillAndExpand" 
+                            x:Name="EmailEntry"
+                           FontSize="Small"
+                            Placeholder="Email"
+                            PlaceholderColor="Gray"
+                            Text="{Binding Email}"
+                            TextChanged="EmailEntry_TextChanged"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Mobile Number" VerticalOptions="Start" TextColor="White" FontSize="Small"/>
+                    <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                            Placeholder="Mobile Number"
+                            PlaceholderColor="Gray"
+                            Text="{Binding MobileNumber}"
+                           TextColor="Black"/>
+                    </Frame>
+                   <!-- <Frame HeightRequest="-1" Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <TTcontrols:BorderlessEntry 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           TextColor="Black"/>
+                    </Frame>-->
+
+                    <Label Text="Country" VerticalOptions="Start" TextColor="White" FontSize="Small"/>
+                    <Frame HeightRequest="-1"  Padding="10" BackgroundColor="White" CornerRadius="05">
+                        <Label x:Name="CountryEntry" TextColor="Black" FontSize="Small" HorizontalOptions="FillAndExpand" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer x:Name="XFLblCountry" NumberOfTapsRequired="1" Tapped="XFLblCountry_Tapped"/>
+                                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" >
+                        <ctrls:CheckBox OnImg="checkbox_tickedwhite.png" VerticalOptions="Center" OffImg="checkbox_blankwhite.png" />
+                        <Label Text="Automatically Sign me In on SMS links" VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                    </StackLayout>
+                    <Grid HeightRequest="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" >
+                            <Button VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Update" TextColor="White" BackgroundColor="#FF710E" CornerRadius="5" BorderColor="#FF710E" Clicked="SubmitButton_Clicked" BorderRadius="5"/>
+                        </Grid>
+                        <!--<Grid Grid.Column="1">
+                            <Button VerticalOptions="Center" HeightRequest="40" Text="Cancel" TextColor="#FF710E" BackgroundColor="White" CornerRadius="5" BorderColor="White" BorderRadius="5" Clicked="Cancel_Clicked"/>
+                        </Grid>-->
+                    </Grid>
+                </StackLayout>
+            </Grid>
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

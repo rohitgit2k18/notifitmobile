@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotiFit.Views.UserSettings.PrivacyPolicyPage"
+              BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid x:Name="RootLayout" Margin="20,30,20,20" BackgroundColor="#36A1E5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image VerticalOptions="StartAndExpand" Source="privacy_policy.png"/>
+                </Grid>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="220"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"  Margin="0,20,0,0">
+                        <Label VerticalOptions="Center" FontAttributes="Bold" HorizontalOptions="Center" Text="PRIVACY POLICY" FontSize="Large" TextColor="#B3D6F2"/>
+                    </Grid>
+                    <Grid Grid.Row="1" BackgroundColor="Transparent">
+
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Personal information:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"  FontSize="Small" TextColor="#B3D6F2"
+                                   Text="The Company is committed to safeguarding personal privacy. It recognizes that individuals have a right to control how their personal information is collected and used. Providing personal information is an act of trust and it is taken seriously. Unless given consent to do otherwise, the Company will only collect and use personal information as set out below." />
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Collecting personal information:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="The Company will not collect or monitor any personal information about an individual without their consent. The only personal information collected is what has been provided voluntarily."/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Use of tracking technologies:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                  Text="The Company uses tracking technologies such as cookies or web beacons to make use of the website and services as convenient as possible. Cookies are pieces of information that a web site transfers to a computer's hard disk for record keeping purposes. Most web browsers are set to accept tracking technologies such as cookies or web beacons. These tracking technologies do not themselves personally identify users, although they do identify a user's browser." />
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Using and disclosing your personal information:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="Personal Information will be used for the following primary purpose:"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="- To fulfill obligations under any sale and purchase contract and/or any other contract between the individual and the Company."/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="- To render services related to Company's business such as warranty or after sales services."/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="For the purpose described above, information may be shared with Company's group companies either in Australia or overseas. Also, in order to operate the web site or deliver a service, personal information may also be shared with a service provider, a non-Company group company."/>
+
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Contact by the Company:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="The Company may contact individuals using the information, which was provided by them in order to:"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="- Provide information that may be of interest about upgrades, new Company products, special offers and other matters that may be of interest."/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="- To send newsletters."/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="5">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Individual's right of access:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="Individuals have the right to review the information that may be recorded on the Company's database. Information may be reviewed by contacting the Company at privacy@noti.fit."/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="The Company and links to other web sites:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="The Company provides links to web sites outside of the Company site. These linked sites are not under the control of Company, and the Company is not responsible for the conduct of companies linked to the Company web site, nor for the performance or otherwise of any content and/or software contained in such external websites."/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="7">
+                            <StackLayout>
+                                <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Problems or queries:" FontSize="Small" TextColor="White"/>
+                                <Label HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"   FontSize="Small" TextColor="#B3D6F2"
+                                   Text="Queries relating to the Privacy Policy, or any problems or complaints may be directed to the Personal Information Officer by emailing privacy@noti.fit"/>
+                            </StackLayout>
+                        </Grid>
+                        
+                    </Grid>
+                    <!--<Grid Grid.Row="2" BackgroundColor="Transparent">
+                        <StackLayout Spacing="0">
+                            <Label FontAttributes="Bold" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Personal information:" FontSize="Small" TextColor="White"/>
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="3" BackgroundColor="Transparent">
+                        <StackLayout Padding="05,02,05,0">
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                    Text="It's one of the biggest problems everyone has when they start working out for the first time, or getting back in the gym/on the pavement after a holiday. I'm just too tired this morning, but I'll start tomorrow or I was flat out today at work, I don't feel like running now. It's really hard getting motivated to go for a grueling run after a long day, or lift heavy weights at 6am." />
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                    Text="But consistency (along with good form) is one of the most important factors that determines whether or not you'll see results from your exercise regiment - even Harvard University agrees (incidentally, their site is full of great tips on exercise and general health, check it out!)." />
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="So how do you stay consistent? Having a workout buddy is great - someone to get up with you at 6 and hit the weights or the treadmill. It keeps you accountable to someone, and you feel like you let them down if you don't get up that morning. But finding someone with a matching schedule and similar fitness goals who lives close enough to you to work out together can be tough."/>
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="That's where noti.fit comes in - you can nominate one of your friends as a virtual workout partner. You plan and schedule your workouts, and enter your results into the app. But if you miss a workout, they get a push notification or SMS to let them know. Best of all, they can be anywhere in the world. noti.fit will help keep you on track so you see results from your efforts."/>
+                            <Label   HorizontalTextAlignment="Center"  HorizontalOptions="Center"  FontSize="Small" TextColor="#B3D6F2"
+                                     Text="There's a free 14-day trial, so get the app for yourself, find a friend to install it on their phone and try it out today. After the trial, it's only 99c US a month to keep going (exact pricing depending on your country, SMS notifications extra)."/>
+                        </StackLayout>
+                    </Grid>-->
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

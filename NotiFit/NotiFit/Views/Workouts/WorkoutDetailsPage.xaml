@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:TTcontrols="clr-namespace:NotiFit.CustomeControls;assembly=NotiFit"
+              xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             x:Class="NotiFit.Views.Workouts.WorkoutDetailsPage"
+             BackgroundImage="bg2.png">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid x:Name="RootLayout" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Row="0" Spacing="10">
+                    <Label Text="Description*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <Label Text="{Binding Description}" 
+                           HorizontalOptions="FillAndExpand" 
+                           FontSize="Small"
+                           MinimumHeightRequest="40"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="50"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Start Time*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="Start" CornerRadius="05">
+                        <Label 
+                           HorizontalOptions="Start" 
+                           FontSize="Small"
+                           WidthRequest="150"
+                            VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                            MinimumHeightRequest="40"
+                               HeightRequest="50"
+                            Text="{Binding StartTime}"
+                           TextColor="White"/>
+                    </Frame>
+                    <Label Text="Finish Time*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal">
+                        <ctrls:CheckBox  Checked="True"/>
+                        <Label Text="Set automatically on workout completion"  FontSize="Small"  TextColor="#7BBCE7"/>
+                    </StackLayout>
+                    <Frame HeightRequest="-1" Padding="0" BorderColor="#63BAED" BackgroundColor="#63BAED" HorizontalOptions="Start" CornerRadius="05">
+                        <Label Text="{Binding FinishTime}" 
+                           HorizontalOptions="Start" 
+                           FontSize="Small"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               MinimumHeightRequest="40"
+                               HeightRequest="50"
+                           WidthRequest="150"
+                           IsEnabled="False"
+                           TextColor="Black"/>
+                    </Frame>
+                    <Label Text="Workout Notes*" 
+                       TextColor="White" 
+                       HorizontalOptions="Start" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                    <Frame HeightRequest="-1" Padding="0" BackgroundColor="White" CornerRadius="05">
+                        <Editor HeightRequest="100" FontSize="Small" Text="{Binding WorkoutNotes}" TextColor="Gray" IsEnabled="False" />
+                    </Frame>
+                    <Frame  HeightRequest="40" Padding="0" HorizontalOptions="FillAndExpand" BorderColor="#FF740E" BackgroundColor="#FF740E">
+                        <StackLayout Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="View Excercises" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                            <Label Text="+" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" x:Name="XFBtnExerciseList" Tapped="XFBtnExerciseList_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                   
+                </StackLayout>
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Spacing="20">
+                    <Button HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                             CornerRadius="5"
+                            TextColor="#009EE3"
+                            BackgroundColor="#FFFFFC"
+                            BorderRadius="5"
+                            Text="Complete Workout"
+                            Clicked="Complete_workout_clicked"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
